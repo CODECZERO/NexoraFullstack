@@ -6,19 +6,33 @@ A full-stack shopping cart application built for Vibe Commerce internship screen
 ## 🎯 Assignment Requirements
 
 ### Backend API Endpoints
-- `GET /api/products` - Fetch 5-10 mock products (id, name, price)
-- `POST /api/cart` - Add item to cart (requires productId and quantity)
-- `DELETE /api/cart/:id` - Remove item from cart
-- `GET /api/cart` - Get current cart with total
-- `POST /api/checkout` - Process order and generate receipt
 
-### Frontend Features (React)
-- Products grid with "Add to Cart" functionality
-- Shopping cart view with item list, quantities, and total
-- Ability to update quantities and remove items
-- Checkout form with name and email fields
-- Order confirmation with receipt
-- Fully responsive design
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/products` | Fetch 5-10 mock products (id, name, price) |
+| `POST` | `/api/cart` | Add item to cart (requires productId and quantity) |
+| `DELETE` | `/api/cart/:id` | Remove item from cart |
+| `GET` | `/api/cart` | Get current cart with total |
+| `POST` | `/api/checkout` | Process order and generate receipt |
+
+### Frontend Features
+
+- **Product Catalog**
+  - Display grid of available products
+  - Show product details (name, price, image)
+  - "Add to Cart" button for each product
+
+- **Shopping Cart**
+  - View all items in cart
+  - Update item quantities
+  - Remove items
+  - Display running total
+
+- **Checkout Process**
+  - Collect customer information (name, email)
+  - Process order
+  - Display order confirmation with receipt
+  - Fully responsive design for all devices
 
 ## 🛠️ Technical Stack
 
