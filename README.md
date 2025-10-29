@@ -1,81 +1,104 @@
-# 🎓 Internship Assignment - E-Commerce Cart Application
+# 🛍️ Vibe Commerce - Internship Assignment
 
 ## 📋 Project Overview
-This project is a full-stack e-commerce cart application developed as part of my internship assignment. It demonstrates proficiency in modern web development technologies including React, Node.js, and MongoDB.
+A full-stack e-commerce shopping cart application built as part of the Vibe Commerce internship screening process. This application demonstrates the ability to implement core e-commerce functionality including product listing, cart management, and a mock checkout process.
 
-## 🎯 Assignment Objectives
-- Build a responsive e-commerce application with cart functionality
-- Implement RESTful API endpoints for product management
-- Create an intuitive user interface with smooth user experience
-- Demonstrate clean code practices and proper documentation
+## 🎯 Assignment Requirements
 
-## 🛠️ Implementation Details
+### Backend API Endpoints
+- `GET /api/products` - Fetch list of products (5-10 mock items)
+- `POST /api/cart` - Add item to cart `{productId, qty}`
+- `DELETE /api/cart/:id` - Remove item from cart
+- `GET /api/cart` - Get cart contents with total
+- `POST /api/checkout` - Process mock checkout, returns receipt
 
-### Frontend Implementation
-- Built with React 18.2 using functional components and hooks
-- Implemented responsive design with CSS3 and modern layout techniques
-- Added form validation and user feedback mechanisms
-- Integrated with backend API for data fetching and state management
+### Frontend Features
+- Responsive product grid with "Add to Cart" functionality
+- Interactive cart view showing items, quantities, and total
+- Ability to update quantities and remove items
+- Checkout form collecting name and email
+- Order confirmation with receipt
+
+### Technical Stack
+- **Frontend**: React
+- **Backend**: Node.js with Express
+- **Database**: MongoDB (with Mongoose ODM)
+- **Deployment**: GitHub repository
+
+## 🚀 Implementation Details
 
 ### Backend Implementation
-- Developed RESTful API using Node.js and Express.js
-- Implemented MongoDB database with Mongoose ODM
-- Set up proper error handling and request validation
-- Configured CORS and environment variables for security
+- **Product Management**
+  - Created mock product data with essential details (id, name, price, image)
+  - Implemented RESTful endpoints for all required operations
+  - Added input validation and error handling
 
-### Key Features Demonstrated
-1. **Product Management**
-   - Display product catalog with images and details
-   - Filter and sort products
-   
-2. **Shopping Cart**
-   - Add/remove items from cart
-   - Update quantities in real-time
-   - Calculate totals and apply discounts
-   
-3. **User Experience**
-   - Responsive design for all screen sizes
-   - Loading states and error handling
-   - Intuitive navigation and feedback
+- **Cart Functionality**
+  - Session-based cart management
+  - Real-time total calculation
+  - Item quantity updates and removal
+
+- **Checkout Process**
+  - Mock checkout endpoint that validates cart
+  - Generates receipt with order details and timestamp
+  - No actual payment processing
+
+### Frontend Implementation
+- **Product Display**
+  - Responsive grid layout for products
+  - Product cards with images and details
+  - Add to cart functionality
+
+- **Shopping Cart**
+  - Interactive cart sidebar/drawer
+  - Real-time updates on quantity changes
+  - Visual feedback for user actions
+
+- **Checkout Flow**
+  - Simple form for customer information
+  - Order summary with itemized list
+  - Receipt display after successful checkout
 
 ## 🛠️ Technical Stack
 
 ### Frontend
-- **Framework**: React 18.2
-- **State Management**: React Context API
-- **HTTP Client**: Axios
-- **UI Components**: Custom components with CSS3
-- **Icons**: React Icons
-- **Notifications**: React Toastify
+- **Framework**: React 18.2 with Create React App
+- **State Management**: React Context API + useReducer
+- **Styling**: CSS Modules for component-scoped styles
+- **HTTP Client**: Axios for API requests
+- **UI Components**: Custom built with accessibility in mind
+- **Form Handling**: React Hook Form with validation
 
 ### Backend
-- **Runtime**: Node.js
+- **Runtime**: Node.js 18+
 - **Framework**: Express.js
-- **Database**: MongoDB with Mongoose
-- **Environment**: dotenv for configuration
-- **Security**: CORS, Helmet
+- **Database**: MongoDB with Mongoose ODM
+- **API**: RESTful design principles
+- **Security**: CORS, Helmet, rate limiting
 
 ### Development Tools
-- **Version Control**: Git
+- **Version Control**: Git with GitHub
 - **Package Manager**: npm
 - **Code Quality**: ESLint, Prettier
+- **API Testing**: Postman/Thunder Client
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm (v8 or higher)
-- MongoDB (local or MongoDB Atlas)
+- Node.js 18 or higher
+- npm 8 or higher
+- MongoDB (local instance or MongoDB Atlas)
+- Git
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
    git clone [your-repository-url]
-   cd project-directory
+   cd vibe-commerce
    ```
 
-2. **Backend Setup**
+2. **Set up the backend**
    ```bash
    cd backend
    npm install
@@ -83,7 +106,7 @@ This project is a full-stack e-commerce cart application developed as part of my
    # Update .env with your MongoDB connection string
    ```
 
-3. **Frontend Setup**
+3. **Set up the frontend**
    ```bash
    cd ../frontend
    npm install
@@ -91,19 +114,22 @@ This project is a full-stack e-commerce cart application developed as part of my
 
 ### Running the Application
 
-1. **Start Backend Server**
+1. **Start the backend server** (from project root)
    ```bash
    cd backend
-   npm start
+   npm run dev
    # Server runs on http://localhost:5000
    ```
 
-2. **Start Frontend Development Server**
+2. **Start the frontend** (from project root)
    ```bash
    cd frontend
    npm start
    # Application opens at http://localhost:3000
    ```
+
+### Testing the API
+API endpoints can be tested using Postman or any API testing tool. Import the provided Postman collection from `/docs` for all available endpoints.
 
 ## 📚 Project Structure
 
@@ -163,29 +189,11 @@ The API endpoints are documented using Postman/OpenAPI. Please refer to the API 
 
 ## 🤝 Contributing
 
-As this is an internship assignment, contributions are not expected. However, feedback and suggestions for improvement are always welcome.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is part of an internship assignment and is not licensed for commercial use.
-
----
-
-**Internship Assignment Submission**  
-*Submitted by: [Your Name]*  
-*Date: [Submission Date]*  
-*Mentor: [Mentor's Name]*  
-*Organization: [Company/Institution Name]*
-
-```
-vibe-commerce/
-├── backend/               # Backend server code
-│   ├── config/           # Configuration files
-│   ├── models/           # Database models
-│   ├── routes/           # API route handlers
-│   └── server.js         # Express server setup
-│
-└── frontend/             # Frontend React application
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
     ├── public/           # Static files
     └── src/              # React source code
         ├── components/   # Reusable UI components
