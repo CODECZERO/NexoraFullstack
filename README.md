@@ -7,13 +7,110 @@ A full-stack shopping cart application built for Vibe Commerce internship screen
 
 ### Backend API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/products` | Fetch 5-10 mock products (id, name, price) |
-| `POST` | `/api/cart` | Add item to cart (requires productId and quantity) |
-| `DELETE` | `/api/cart/:id` | Remove item from cart |
-| `GET` | `/api/cart` | Get current cart with total |
-| `POST` | `/api/checkout` | Process order and generate receipt |
+#### 1. Get All Products
+- **Method:** `GET`
+- **Endpoint:** `/api/products`
+- **Description:** Fetches a list of all available products
+- **Response:**
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Wireless Earbuds",
+      "price": 99.99,
+      "image": "/images/earbuds.jpg",
+      "description": "High-quality wireless earbuds with noise cancellation"
+    },
+    // ... more products
+  ]
+  ```
+
+#### 2. Add Item to Cart
+- **Method:** `POST`
+- **Endpoint:** `/api/cart`
+- **Request Body:**
+  ```json
+  {
+    "productId": 1,
+    "quantity": 2
+  }
+  ```
+- **Success Response (201):**
+  ```json
+  {
+    "message": "Item added to cart",
+    "cartItem": {
+      "id": 1,
+      "productId": 1,
+      "quantity": 2,
+      "name": "Wireless Earbuds",
+      "price": 99.99
+    }
+  }
+  ```
+
+#### 3. Get Cart Contents
+- **Method:** `GET`
+- **Endpoint:** `/api/cart`
+- **Response:**
+  ```json
+  {
+    "items": [
+      {
+        "id": 1,
+        "productId": 1,
+        "name": "Wireless Earbuds",
+        "price": 99.99,
+        "quantity": 2,
+        "subtotal": 199.98
+      }
+    ],
+    "total": 199.98,
+    "totalItems": 2
+  }
+  ```
+
+#### 4. Remove Item from Cart
+- **Method:** `DELETE`
+- **Endpoint:** `/api/cart/:id`
+- **URL Parameters:**
+  - `id`: Cart item ID to remove
+- **Success Response (200):**
+  ```json
+  {
+    "message": "Item removed from cart",
+    "itemId": 1
+  }
+  ```
+
+#### 5. Process Checkout
+- **Method:** `POST`
+- **Endpoint:** `/api/checkout`
+- **Request Body:**
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+  ```
+- **Success Response (201):**
+  ```json
+  {
+    "orderId": "ORD-123456",
+    "customerName": "John Doe",
+    "customerEmail": "john@example.com",
+    "items": [
+      {
+        "name": "Wireless Earbuds",
+        "quantity": 2,
+        "price": 99.99,
+        "subtotal": 199.98
+      }
+    ],
+    "total": 199.98,
+    "orderDate": "2025-10-29T14:30:00Z"
+  }
+  ```
 
 ### Frontend Features
 
@@ -602,9 +699,9 @@ For any questions or clarifications, please contact through the Nexora internshi
 ---
 
 **Assignment Submission Details:**
-- **Candidate Name**: [Your Name]
+- **Candidate Name**: [Ankit Sing Mahar]
 - **Submission Date**: October 30, 2025
-- **GitHub Repository**: [Repository URL]
+- **GitHub Repository**: [https://github.com/CODECZERO/NexoraFullstack]
 - **Demo Video**: [Video URL]
 
 ---

@@ -111,15 +111,36 @@ function App() {
   const handleRemoveItem = async (productId) => {
     try {
       const response = await removeFromCart(productId);
-      // The response might be nested in a data property or be the direct response
-      const cartData = response.data || response;
-      setCartItems(cartData.items || []);
-      setCartTotal(cartData.total || 0);
-      setCartCount(cartData.items ? cartData.items.length : 0);
-      toast.success('Item removed from cart');
+      // Ensure we have valid cart data before updating state
+      if (response && response.items) {
+        setCartItems(response.items);
+        setCartTotal(response.total || 0);
+        setCartCount(response.items.length);
+        toast.success('Item removed from cart');
+      } else {
+        // If response doesn't contain items, refetch the cart
+        const { data } = await getCart();
+        setCartItems(data.items || []);
+        setCartTotal(data.total || 0);
+        setCartCount(data.items ? data.items.length : 0);
+        toast.success('Item removed from cart');
+      }
     } catch (err) {
       console.error('Failed to remove item:', err);
-      toast.error(err.message || 'Failed to remove item');
+      const errorMessage = err.response?.data?.message || err.message || 'Failed to remove item';
+      toast.error(errorMessage);
+      
+      // If the error is because the item wasn't found, refresh the cart
+      if (errorMessage.includes('not found')) {
+        try {
+          const { data } = await getCart();
+          setCartItems(data.items || []);
+          setCartTotal(data.total || 0);
+          setCartCount(data.items ? data.items.length : 0);
+        } catch (refreshError) {
+          console.error('Error refreshing cart:', refreshError);
+        }
+      }
     }
   };
 

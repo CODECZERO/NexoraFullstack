@@ -50,9 +50,17 @@ export const updateCartItem = async (productId, qty) => {
 export const removeFromCart = async (productId) => {
   try {
     const response = await api.delete(`/cart/${productId}`);
-    return response.data;
+    // Ensure we return a consistent response format
+    return {
+      items: response.data?.items || [],
+      total: response.data?.total || 0,
+      ...response.data
+    };
   } catch (error) {
-    throw error.response?.data || { message: 'Failed to remove item from cart' };
+    // Provide more detailed error information
+    const errorResponse = error.response?.data || { message: 'Failed to remove item from cart' };
+    errorResponse.status = error.response?.status;
+    throw errorResponse;
   }
 };
 
