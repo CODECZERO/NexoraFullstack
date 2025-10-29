@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTimes, FaShoppingCart, FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
+import { FaTimes, FaShoppingCart, FaPlus, FaMinus, FaTrash, FaBroom } from 'react-icons/fa';
 
 const CartSidebar = ({
   isOpen,
@@ -9,6 +9,7 @@ const CartSidebar = ({
   onUpdateQuantity,
   onRemoveItem,
   onCheckout,
+  onClearCart,
 }) => {
   return (
     <>
@@ -80,9 +81,21 @@ const CartSidebar = ({
               <span className="total-label">Total:</span>
               <span className="total-amount">${cartTotal.toFixed(2)}</span>
             </div>
-            <button className="checkout-btn" onClick={onCheckout}>
-              Proceed to Checkout
-            </button>
+            <div className="cart-actions">
+              <button 
+                className="clear-cart-btn"
+                onClick={onClearCart}
+                title="Clear cart"
+              >
+                <FaBroom /> Clear Cart
+              </button>
+              <button 
+                className="checkout-btn" 
+                onClick={onCheckout}
+              >
+                Proceed to Checkout
+              </button>
+            </div>
           </div>
         )}
       </div>

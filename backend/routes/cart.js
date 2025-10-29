@@ -111,4 +111,32 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// DELETE /api/cart - Clear entire cart
+router.delete('/', async (req, res) => {
+  try {
+    const userId = 'mock-user-001';
+    const cart = await Cart.findOne({ userId });
+    
+    if (!cart) {
+      return res.status(404).json({ message: 'Cart not found' });
+    }
+    
+    // Clear all items
+    cart.items = [];
+    cart.total = 0;
+    
+    await cart.save();
+    
+    res.json({
+      items: [],
+      total: 0,
+      message: 'Cart cleared successfully'
+    });
+    
+  } catch (error) {
+    console.error('Error clearing cart:', error);
+    res.status(500).json({ message: 'Server error while clearing cart' });
+  }
+});
+
 module.exports = router;
