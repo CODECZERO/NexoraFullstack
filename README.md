@@ -1,104 +1,54 @@
-# 🛍️ Vibe Commerce - Internship Assignment
+# 🛒 Vibe Commerce - Internship Assignment
 
 ## 📋 Project Overview
-A full-stack e-commerce shopping cart application built as part of the Vibe Commerce internship screening process. This application demonstrates the ability to implement core e-commerce functionality including product listing, cart management, and a mock checkout process.
+A full-stack shopping cart application built for Vibe Commerce internship screening. This application demonstrates the implementation of core e-commerce functionalities including product listing, cart management, and a mock checkout process.
 
 ## 🎯 Assignment Requirements
 
 ### Backend API Endpoints
-- `GET /api/products` - Fetch list of products (5-10 mock items)
-- `POST /api/cart` - Add item to cart `{productId, qty}`
+- `GET /api/products` - Fetch 5-10 mock products (id, name, price)
+- `POST /api/cart` - Add item to cart (requires productId and quantity)
 - `DELETE /api/cart/:id` - Remove item from cart
-- `GET /api/cart` - Get cart contents with total
-- `POST /api/checkout` - Process mock checkout, returns receipt
+- `GET /api/cart` - Get current cart with total
+- `POST /api/checkout` - Process order and generate receipt
 
-### Frontend Features
-- Responsive product grid with "Add to Cart" functionality
-- Interactive cart view showing items, quantities, and total
+### Frontend Features (React)
+- Products grid with "Add to Cart" functionality
+- Shopping cart view with item list, quantities, and total
 - Ability to update quantities and remove items
-- Checkout form collecting name and email
+- Checkout form with name and email fields
 - Order confirmation with receipt
-
-### Technical Stack
-- **Frontend**: React
-- **Backend**: Node.js with Express
-- **Database**: MongoDB (with Mongoose ODM)
-- **Deployment**: GitHub repository
-
-## 🚀 Implementation Details
-
-### Backend Implementation
-- **Product Management**
-  - Created mock product data with essential details (id, name, price, image)
-  - Implemented RESTful endpoints for all required operations
-  - Added input validation and error handling
-
-- **Cart Functionality**
-  - Session-based cart management
-  - Real-time total calculation
-  - Item quantity updates and removal
-
-- **Checkout Process**
-  - Mock checkout endpoint that validates cart
-  - Generates receipt with order details and timestamp
-  - No actual payment processing
-
-### Frontend Implementation
-- **Product Display**
-  - Responsive grid layout for products
-  - Product cards with images and details
-  - Add to cart functionality
-
-- **Shopping Cart**
-  - Interactive cart sidebar/drawer
-  - Real-time updates on quantity changes
-  - Visual feedback for user actions
-
-- **Checkout Flow**
-  - Simple form for customer information
-  - Order summary with itemized list
-  - Receipt display after successful checkout
+- Fully responsive design
 
 ## 🛠️ Technical Stack
 
 ### Frontend
-- **Framework**: React 18.2 with Create React App
-- **State Management**: React Context API + useReducer
-- **Styling**: CSS Modules for component-scoped styles
-- **HTTP Client**: Axios for API requests
-- **UI Components**: Custom built with accessibility in mind
-- **Form Handling**: React Hook Form with validation
+- React 18+
+- React Context API (State Management)
+- Axios for API requests
+- Responsive CSS with Flexbox/Grid
 
 ### Backend
-- **Runtime**: Node.js 18+
-- **Framework**: Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **API**: RESTful design principles
-- **Security**: CORS, Helmet, rate limiting
-
-### Development Tools
-- **Version Control**: Git with GitHub
-- **Package Manager**: npm
-- **Code Quality**: ESLint, Prettier
-- **API Testing**: Postman/Thunder Client
+- Node.js with Express.js
+- MongoDB (Mongoose ODM) / SQLite
+- RESTful API architecture
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18 or higher
-- npm 8 or higher
-- MongoDB (local instance or MongoDB Atlas)
-- Git
+- Node.js (v16 or higher)
+- npm (v8 or higher)
+- MongoDB (local or MongoDB Atlas)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
    git clone [your-repository-url]
-   cd vibe-commerce
+   cd [project-directory]
    ```
 
-2. **Set up the backend**
+2. **Backend Setup**
    ```bash
    cd backend
    npm install
@@ -106,7 +56,7 @@ A full-stack e-commerce shopping cart application built as part of the Vibe Comm
    # Update .env with your MongoDB connection string
    ```
 
-3. **Set up the frontend**
+3. **Frontend Setup**
    ```bash
    cd ../frontend
    npm install
@@ -114,27 +64,24 @@ A full-stack e-commerce shopping cart application built as part of the Vibe Comm
 
 ### Running the Application
 
-1. **Start the backend server** (from project root)
+1. **Start Backend Server**
    ```bash
    cd backend
-   npm run dev
+   npm start
    # Server runs on http://localhost:5000
    ```
 
-2. **Start the frontend** (from project root)
+2. **Start Frontend Development Server**
    ```bash
    cd frontend
    npm start
    # Application opens at http://localhost:3000
    ```
 
-### Testing the API
-API endpoints can be tested using Postman or any API testing tool. Import the provided Postman collection from `/docs` for all available endpoints.
-
 ## 📚 Project Structure
 
 ```
-project-root/
+vibe-commerce/
 ├── backend/               # Backend server code
 │   ├── config/           # Configuration files
 │   ├── controllers/      # Route controllers
@@ -146,54 +93,59 @@ project-root/
     ├── public/           # Static files
     └── src/
         ├── components/   # Reusable UI components
-        ├── context/      # React context providers
+        ├── context/      # Cart context
         ├── pages/        # Application pages
         └── App.js        # Main application component
 ```
 
-## 📝 Assignment Requirements Fulfilled
-
-### Technical Requirements
-- [x] Implemented RESTful API with proper CRUD operations
-- [x] Created responsive and interactive frontend
-- [x] Integrated with MongoDB database
-- [x] Implemented proper error handling and validation
-- [x] Added loading states and user feedback
-
-### Code Quality
-- [x] Followed best practices for React and Node.js
-- [x] Added proper code comments and documentation
-- [x] Implemented proper folder structure
-- [x] Used environment variables for configuration
-
 ## 📄 API Documentation
 
-The API endpoints are documented using Postman/OpenAPI. Please refer to the API documentation for detailed information about available endpoints, request/response formats, and authentication requirements.
+### Products
+- `GET /api/products`
+  - Returns: Array of product objects with id, name, price
+  - Example response:
+    ```json
+    [
+      {"id": 1, "name": "Product 1", "price": 29.99},
+      {"id": 2, "name": "Product 2", "price": 49.99}
+    ]
+    ```
+
+### Cart
+- `GET /api/cart`
+  - Returns: Current cart with items and total
+- `POST /api/cart`
+  - Body: `{ "productId": 1, "quantity": 2 }`
+- `DELETE /api/cart/:id`
+  - Removes item from cart by product ID
+
+### Checkout
+- `POST /api/checkout`
+  - Body: `{ "name": "John Doe", "email": "john@example.com" }`
+  - Returns: Order confirmation with receipt
 
 ## 📱 Screenshots
-
-*(Add screenshots of your application here)*
-- Home Page
-- Product Listing
+*(Add your application screenshots here)*
+- Products Page
 - Shopping Cart
-- Checkout Process
+- Checkout Form
 - Order Confirmation
 
-## 📝 Learning Outcomes
+## 🎯 Bonus Features (If Implemented)
+- [ ] Database persistence for user sessions
+- [ ] Enhanced error handling and form validation
+- [ ] Integration with Fake Store API
+- [ ] Unit/Integration tests
 
-1. Gained hands-on experience with MERN stack development
-2. Implemented proper state management in React
-3. Learned about RESTful API design and best practices
-4. Understood the importance of proper error handling
-5. Improved debugging and problem-solving skills
+## 📝 Notes
+- This is a mock implementation for internship screening
+- No real payments are processed
+- Data resets on server restart (unless using persistent DB)
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📅 Submission
+- GitHub Repository: [Your Repo Link]
+- Demo Video: [Loom/YouTube Link]
+- Submitted on: [Submission Date]
     ├── public/           # Static files
     └── src/              # React source code
         ├── components/   # Reusable UI components
