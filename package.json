@@ -1,0 +1,28 @@
+{
+  "name": "vibe-commerce",
+  "version": "1.0.0",
+  "description": "Full Stack E-Commerce Cart Application for Nexora Internship",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && node scripts/seedDatabase.js",
+    "start-backend": "cd backend && npm start",
+    "start-frontend": "cd frontend && npm start",
+    "dev-backend": "cd backend && npm run dev",
+    "build-frontend": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "ecommerce",
+    "cart",
+    "react",
+    "nodejs",
+    "mongodb",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/YOUR_REPO_NAME"
+  }
+}

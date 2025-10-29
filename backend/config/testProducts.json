@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Premium Wireless Headphones",
+    "price": 7499,
+    "description": "High-quality wireless headphones with active noise cancellation and 40-hour battery life.",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
+    "category": "Electronics",
+    "stock": 45
+  },
+  {
+    "id": 2,
+    "name": "Smart Fitness Tracker",
+    "price": 12499,
+    "description": "Advanced fitness tracker with heart rate monitoring, GPS, and sleep tracking features.",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
+    "category": "Wearables",
+    "stock": 60
+  },
+  {
+    "id": 3,
+    "name": "Portable Bluetooth Speaker",
+    "price": 6699,
+    "description": "Waterproof portable speaker with 360-degree sound and 20-hour playtime.",
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
+    "category": "Audio",
+    "stock": 80
+  },
+  {
+    "id": 4,
+    "name": "Wireless Gaming Mouse",
+    "price": 5849,
+    "description": "Professional gaming mouse with customizable RGB lighting and 16000 DPI sensor.",
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "category": "Gaming",
+    "stock": 55
+  },
+  {
+    "id": 5,
+    "name": "USB-C Charging Cable",
+    "price": 1669,
+    "description": "Fast charging USB-C cable with braided nylon design and 6ft length.",
+    "image": "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&h=500&fit=crop",
+    "category": "Accessories",
+    "stock": 200
+  },
+  {
+    "id": 6,
+    "name": "Laptop Stand",
+    "price": 3349,
+    "description": "Ergonomic aluminum laptop stand with adjustable height and cooling design.",
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "category": "Accessories",
+    "stock": 75
+  },
+  {
+    "id": 7,
+    "name": "Mechanical Keyboard",
+    "price": 10849,
+    "description": "RGB mechanical keyboard with hot-swappable switches and aluminum frame.",
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=500&fit=crop",
+    "category": "Gaming",
+    "stock": 40
+  },
+  {
+    "id": 8,
+    "name": "Webcam 1080p HD",
+    "price": 8349,
+    "description": "Full HD webcam with auto-focus, built-in microphone, and low-light correction.",
+    "image": "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=500&h=500&fit=crop",
+    "category": "Electronics",
+    "stock": 35
+  }
+]
