@@ -551,24 +551,16 @@ http://localhost:5000/api
 ## 📸 Screenshots
 
 ### Home Page - Product Grid
-![Product Grid](screenshots/products.png)
+![Product Grid](https://drive.google.com/file/d/1RldUlkEIVuuF52y26ROzXzOGJkeE7WFE/view?usp=sharing)
 *Modern product grid with beautiful cards and hover effects*
 
 ### Shopping Cart Sidebar
-![Cart Sidebar](screenshots/cart.png)
+![Cart Sidebar](https://drive.google.com/file/d/1OYDAjmJsQkapY3a-uWl8NDvmQHQE-lhu/view?usp=sharing)
 *Sliding cart sidebar with quantity controls and remove buttons*
 
 ### Checkout Modal
-![Checkout](screenshots/checkout.png)
+![Checkout](https://drive.google.com/file/d/1LRur7fgYHaem3AC64jOEShzT4psqFpin/view?usp=sharing)
 *Clean checkout form with order summary*
-
-### Order Receipt
-![Receipt](screenshots/receipt.png)
-*Success modal with complete order details*
-
-### Mobile Responsive
-![Mobile View](screenshots/mobile.png)
-*Fully responsive design for mobile devices*
 
 ## 🏗 Architecture
 
